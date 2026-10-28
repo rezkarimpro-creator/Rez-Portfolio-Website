@@ -1,0 +1,40 @@
+{
+  "autoContinueAtUsageLimit": true,
+  "permissions": {
+    "deny": [
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(git -C * commit *)",
+      "Bash(git -C * push *)",
+      "Bash(npm run deploy)",
+      "Bash(npm run deploy *)",
+      "Bash(npm run preview:remote*)",
+      "Bash(npx opennextjs-cloudflare deploy*)",
+      "Bash(npx wrangler deploy*)",
+      "Bash(npx wrangler secret*)",
+      "Bash(npx wrangler rollback*)",
+      "Bash(npx wrangler versions*)",
+      "Bash(npx wrangler preview*)",
+      "Bash(npx wrangler d1 create*)",
+      "Bash(npx wrangler * --remote*)",
+      "Bash(wrangler deploy*)",
+      "Bash(wrangler secret*)",
+      "Bash(wrangler rollback*)",
+      "Bash(wrangler versions*)",
+      "Bash(wrangler preview*)",
+      "Bash(wrangler d1 create*)",
+      "Bash(wrangler * --remote*)",
+      "mcp__1214a69a-e436-4a74-9368-ef363a17b1d5__d1_database_create",
+      "mcp__1214a69a-e436-4a74-9368-ef363a17b1d5__d1_database_delete",
+      "mcp__1214a69a-e436-4a74-9368-ef363a17b1d5__d1_database_query",
+      "mcp__1214a69a-e436-4a74-9368-ef363a17b1d5__kv_namespace_create",
+      "mcp__1214a69a-e436-4a74-9368-ef363a17b1d5__kv_namespace_delete",
+      "mcp__1214a69a-e436-4a74-9368-ef363a17b1d5__kv_namespace_update",
+      "mcp__1214a69a-e436-4a74-9368-ef363a17b1d5__r2_bucket_create",
+      "mcp__1214a69a-e436-4a74-9368-ef363a17b1d5__r2_bucket_delete",
+      "mcp__1214a69a-e436-4a74-9368-ef363a17b1d5__hyperdrive_config_edit",
+      "mcp__1214a69a-e436-4a74-9368-ef363a17b1d5__hyperdrive_config_delete",
+      "mcp__1214a69a-e436-4a74-9368-ef363a17b1d5__workers_get_worker_code"
+    ]
+  }
+}

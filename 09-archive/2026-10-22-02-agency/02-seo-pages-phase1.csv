@@ -1,0 +1,102 @@
+id,phase,batch,type,url,working_title,target_query,service,industry,proof,delivered_by,notes
+C01,1,A,core,/,"[Agency]: brand, websites and ongoing design",branding and website design agency,,,Proof bar,Team,Brand name to be decided; studio voice
+C02,1,A,core,/services/,Design and development services,design and development agency,,,,,Every service plus a Not listed? Ask us line
+C03,1,A,core,/industries/,Industries we design for,,,,,,Hub for the 13 industry pages
+C04,1,A,core,/work/,Work and case studies,branding case studies,,,All 8 cases,,
+C05,1,A,core,/pricing/,Pricing,design agency pricing,,,,,From prices; same numbers on every page
+C06,1,A,core,/about/,About [Agency],[agency name],,,,,Team by role: Design Lead and Engineering Lead; no founder titles
+C07,1,A,core,/contact/,Contact and quotes,,,,,,Quote form + project call
+C08,1,A,core,/white-label/,White-label design and development for agencies,white label design agency,,,,Rez + designer + friend,Agency Overflow Team; pilot brief
+C09,1,A,core,/guides/,Guides,,,,,,Hub for guides
+C10,1,A,core,/privacy/,Privacy policy,,,,,,
+C11,1,A,core,/terms/,Terms,,,,,,
+S01,1,A,service,/brand-identity-design/,Brand identity design,brand identity design agency,brand identity,,B1 B7 B2 B3,Rez + designer,
+S02,1,A,service,/logo-design/,Logo design,logo design agency,logo,,B1 B2 B3 B4 B5 B6,Rez + designer,
+S03,1,A,service,/brand-guidelines/,Brand guidelines design,brand guidelines design service,brand guidelines,,B7,Rez + designer,
+S04,1,A,service,/pitch-deck-design/,Pitch deck design,pitch deck design agency,pitch deck,,D1 D2,Rez,
+S05,1,A,service,/pitch-deck-redesign/,Pitch deck redesign (72-Hour Deck Rescue),pitch deck redesign,pitch deck redesign,,D1,Rez,
+S06,1,A,service,/sales-deck-design/,Sales deck design,sales deck design agency,sales deck,,D1,Rez,Weak proof; add a sales deck sample
+S07,1,A,service,/company-profile-design/,Company profile design,company profile design,company profile,,None yet,Rez + designer,Needs 1 sample or template before launch; never Taste work
+S08,1,A,service,/presentation-design/,Presentation design for PowerPoint Keynote and Google Slides,presentation design agency,presentation,,D1 D2,Rez + designer,
+S09,1,A,service,/social-media-design/,Social media design,social media design services,social media,,120+ own posts in Figma,Designer,
+S10,1,A,service,/linkedin-design/,LinkedIn profile and banner design,linkedin banner design service,linkedin,,Past-client refreshes with OK,Designer (Rez directs),Dedicated page; not the headline
+S11,1,A,service,/social-media-ad-design/,Social media ad design,social media ad design services,social ads,,Own posts (weak),Designer,
+S12,1,A,service,/website-design/,Website design,website design agency,website design,,W1 W2 W3 W4 W5 W6 W7 B1,Rez + designer,
+S13,1,A,service,/landing-page-design/,Landing page design,landing page design agency,landing page design,,W4 B1,Rez + designer,
+S14,1,A,service,/mobile-app-design/,Mobile app design,mobile app design agency,mobile app design,,A1 A2,Rez,
+S15,1,A,service,/website-development/,Website development,website development agency,website development,,SolVita (Framer) + friend's builds,Friend,Live after the friend agreement
+S16,1,A,service,/landing-page-development/,Landing page development,landing page development services,landing page development,,Friend's builds,Friend,Live after the friend agreement
+S17,1,A,service,/cms-development/,CMS development for Webflow WordPress and Framer,webflow development agency,cms development,,Friend's builds,Friend,Live after the friend agreement
+S18,1,A,service,/shopify-development/,Shopify development,shopify development agency,shopify development,,Friend's builds,Friend,Only if your friend confirms Shopify
+S19,1,A,service,/design-retainer/,Monthly Design Team (design retainer),design retainer,retainer,,,Rez + designer,Monthly plan for clients after a project
+I01,1,A,industry,/industries/healthcare/,Design for healthcare and medical brands,healthcare branding agency,,healthcare,B7 B1,,Strongest proof
+I02,1,A,industry,/industries/real-estate/,Design for real estate and proptech,real estate branding agency,,real estate,W1 A1,,Client work; top Behance search cluster
+I03,1,A,industry,/industries/saas/,Design for SaaS and B2B software,saas branding agency,,saas,B2 D1,,Delineate by name only
+I04,1,A,industry,/industries/startups/,Design for startups,startup branding agency,,startups,D1,,Deck-led
+I05,1,A,industry,/industries/logistics/,Design for logistics and shipping,logistics branding agency,,logistics,B3 W2,,
+I06,1,A,industry,/industries/law-firms/,Design for law firms,law firm branding agency,,law firms,W6,,Lexor to analyse
+I07,1,A,industry,/industries/beauty-skincare/,Design for beauty and skincare brands,skincare branding agency,,beauty skincare,B4,,Concept work only so far
+I08,1,A,industry,/industries/restaurants/,Design for restaurants and food brands,restaurant branding agency,,restaurants,B6,,
+I09,1,A,industry,/industries/solar-energy/,Design for solar and renewable energy,solar company branding,,solar energy,W3,,
+I10,1,A,industry,/industries/ecommerce/,Design for e-commerce and retail,ecommerce design agency,,ecommerce,W5 W7,,
+I11,1,A,industry,/industries/telecom/,Design for telecom and travel tech,telecom branding agency,,telecom,B5,,
+I12,1,A,industry,/industries/fitness/,Design for fitness and wellness,fitness brand design,,fitness,A2,,
+I13,1,A,industry,/industries/home-services/,Design for home and local services,home services website design,,home services,W4,,
+W01,1,A,case,/work/earworm-investor-deck/,Earworm investor pitch deck,investor pitch deck example,pitch deck,startups,D1 (client),,Studio write-up; follow the pre-seed wording rule
+W02,1,A,case,/work/solvita-brand-and-website/,SolVita healthcare brand and website,healthcare brand identity example,brand identity,healthcare,B1 (client),,Never alone: list D1 and W1 above it
+W03,1,A,case,/work/omega-health-care-brand-guidelines/,Omega Health Care brand guidelines,brand guidelines example,brand guidelines,healthcare,B7 (client),,Export from Figma
+W04,1,A,case,/work/real-estate-website/,Real estate website design,real estate website design example,website design,real estate,W1 (client),,
+W05,1,A,case,/work/real-estate-app/,Real estate mobile app design,real estate app design,mobile app design,real estate,A1 (client),,
+W06,1,A,case,/work/syncgrid-brand-identity/,SyncGrid HR SaaS brand identity (concept),saas brand identity example,brand identity,saas,B2 (concept),,
+W07,1,A,case,/work/logistics-brand-identity/,Shipping and logistics brand identity (concept),logistics brand identity,brand identity,logistics,B3 (concept),,
+W08,1,A,case,/work/alpha-skincare-brand/,ALPHA skincare brand identity (concept),skincare brand identity,brand identity,beauty skincare,B4 (concept),,Swap for Astra or GHX Summit once shared
+X01,1,B,service x industry,/pitch-deck-design/saas/,Pitch deck design for SaaS startups,saas pitch deck design,pitch deck,saas,D1,Rez,
+X02,1,B,service x industry,/pitch-deck-design/healthcare/,Pitch deck design for healthcare startups,healthcare pitch deck,pitch deck,healthcare,Delineate (name only) + B1 B7,Rez,
+X03,1,B,service x industry,/pitch-deck-design/real-estate/,Pitch deck design for real estate and proptech,real estate pitch deck,pitch deck,real estate,W1 A1 (sector),Rez,
+X04,1,B,service x industry,/pitch-deck-design/ecommerce/,Pitch deck design for e-commerce brands,ecommerce pitch deck,pitch deck,ecommerce,W5 W7 (sector),Rez,Weakest; build last
+X05,1,B,service x industry,/pitch-deck-design/solar-energy/,Pitch deck design for climate and solar startups,climate tech pitch deck,pitch deck,solar energy,W3 (sector),Rez,
+X06,1,B,service x industry,/pitch-deck-design/logistics/,Pitch deck design for logistics startups,logistics pitch deck,pitch deck,logistics,B3 W2 (sector),Rez,
+X07,1,B,service x industry,/sales-deck-design/saas/,Sales deck design for SaaS teams,saas sales deck,sales deck,saas,D1,Rez,
+X08,1,B,service x industry,/brand-identity-design/healthcare/,Healthcare brand identity design,healthcare brand identity,brand identity,healthcare,B1 B7,Rez + designer,
+X09,1,B,service x industry,/brand-identity-design/real-estate/,Real estate brand identity design,real estate brand identity,brand identity,real estate,Taif PropTech + Prime Properties (to analyse),Rez + designer,
+X10,1,B,service x industry,/brand-identity-design/saas/,SaaS brand identity design,saas brand identity design,brand identity,saas,B2,Rez + designer,
+X11,1,B,service x industry,/brand-identity-design/logistics/,Logistics brand identity design,logistics brand identity design,brand identity,logistics,B3,Rez + designer,
+X12,1,B,service x industry,/brand-identity-design/beauty-skincare/,Skincare brand identity and packaging,skincare brand identity design,brand identity,beauty skincare,B4,Rez + designer,
+X13,1,B,service x industry,/brand-identity-design/restaurants/,Restaurant brand identity design,restaurant brand identity design,brand identity,restaurants,B6,Rez + designer,
+X14,1,B,service x industry,/brand-identity-design/telecom/,Telecom and eSIM brand identity,telecom brand identity,brand identity,telecom,B5,Rez + designer,
+X15,1,B,service x industry,/brand-identity-design/law-firms/,Law firm brand identity design,law firm branding,brand identity,law firms,Lexor (to analyse),Rez + designer,
+X16,1,B,service x industry,/logo-design/healthcare/,Healthcare and medical logo design,medical logo design,logo,healthcare,B1 B7,Rez + designer,
+X17,1,B,service x industry,/logo-design/restaurants/,Restaurant logo design,restaurant logo design,logo,restaurants,B6,Rez + designer,
+X18,1,B,service x industry,/logo-design/real-estate/,Real estate logo design,real estate logo design,logo,real estate,Taif PropTech + Prime Properties (to analyse),Rez + designer,
+X19,1,B,service x industry,/logo-design/saas/,SaaS and tech logo design,tech logo design,logo,saas,B2,Rez + designer,
+X20,1,B,service x industry,/brand-guidelines/healthcare/,Brand guidelines for healthcare brands,healthcare brand guidelines,brand guidelines,healthcare,B7,Rez + designer,
+X21,1,B,service x industry,/website-design/real-estate/,Real estate website design,real estate website design,website design,real estate,W1,Rez + designer,
+X22,1,B,service x industry,/website-design/healthcare/,Healthcare website design,healthcare website design,website design,healthcare,B1 (SolVita site),Rez + designer,
+X23,1,B,service x industry,/website-design/law-firms/,Law firm website design,law firm website design,website design,law firms,W6,Rez + designer,
+X24,1,B,service x industry,/website-design/logistics/,Logistics website design,logistics website design,website design,logistics,W2,Rez + designer,
+X25,1,B,service x industry,/website-design/solar-energy/,Solar company website design,solar website design,website design,solar energy,W3,Rez + designer,
+X26,1,B,service x industry,/website-design/ecommerce/,E-commerce website design,ecommerce website design,website design,ecommerce,W5 W7,Rez + designer,
+X27,1,B,service x industry,/website-design/home-services/,Website design for cleaning and home services,cleaning service website design,website design,home services,W4,Rez + designer,
+X28,1,B,service x industry,/landing-page-design/home-services/,Landing page design for local services,service business landing page,landing page design,home services,W4,Rez + designer,
+X29,1,B,service x industry,/landing-page-design/startups/,Startup landing page design,startup landing page design,landing page design,startups,B1 (SolVita site),Rez + designer,
+X30,1,B,service x industry,/mobile-app-design/real-estate/,Real estate app design,real estate app design,mobile app design,real estate,A1,Rez,
+X31,1,B,service x industry,/mobile-app-design/fitness/,Fitness app design,fitness app design,mobile app design,fitness,A2,Rez,
+X32,1,B,service x industry,/website-development/real-estate/,Real estate website development,real estate website development,website development,real estate,W1 + friend's builds,Friend,Live after the friend agreement
+X33,1,B,service x industry,/website-development/healthcare/,Healthcare website development,healthcare website development,website development,healthcare,SolVita (Framer),Friend,Live after the friend agreement
+X34,1,B,service x industry,/website-development/law-firms/,Law firm website development,law firm website development,website development,law firms,W6 + friend's builds,Friend,Live after the friend agreement
+X35,1,B,service x industry,/website-development/ecommerce/,E-commerce website development,ecommerce website development,website development,ecommerce,Friend's builds,Friend,Shopify only if he confirms
+X36,1,B,service x industry,/social-media-design/restaurants/,Social media design for restaurants,restaurant social media design,social media,restaurants,Own posts (pick),Designer,
+X37,1,B,service x industry,/social-media-design/real-estate/,Social media design for real estate,real estate social media design,social media,real estate,Own posts (pick),Designer,
+X38,1,B,service x industry,/linkedin-design/startups/,LinkedIn profile design for founders,linkedin profile design for founders,linkedin,startups,Past-client refreshes with OK,Designer (Rez directs),
+G01,1,B,guide,/guides/pitch-deck-design-cost/,How much does pitch deck design cost in 2026?,pitch deck design cost,pitch deck,,,,Price table matches /pricing
+G02,1,B,guide,/guides/brand-identity-cost/,How much does a brand identity cost?,brand identity design cost,brand identity,,,,
+G03,1,B,guide,/guides/website-cost/,How much does a website cost to design and build?,website design and development cost,website design,,,,
+G04,1,B,guide,/guides/pitch-deck-structure/,Pitch deck structure: the Investor Question Order,pitch deck structure,pitch deck,,,,Rez's named method
+G05,1,B,guide,/guides/cold-read-test/,The Cold-Read Test for brands websites and decks,first impression test for brand and website,method,,,,Rez's named method; also lead magnets #4 and #5
+G06,1,B,guide,/guides/ai-design-tools-vs-designer/,AI design tools vs hiring a designer: what each is good for,ai design tools vs designer,,,,,Covers Canva and Gamma and AI website builders
+G07,1,B,guide,/guides/brand-guidelines-checklist/,What brand guidelines should include,brand guidelines checklist,brand guidelines,,B7,,
+G08,1,B,guide,/guides/company-profile-structure/,Company profile structure with examples,company profile structure,company profile,,,,Examples must be own work or templates
+G09,1,B,guide,/guides/agency-vs-freelancer-vs-subscription/,Design agency vs freelancer vs design subscription,design agency vs freelancer,,,,,
+G10,1,B,guide,/guides/white-label-design/,White-label design for agencies: how it works,white label design services,white label,,,,
+G11,1,B,guide,/guides/linkedin-profile-design/,LinkedIn profile design for founders: banner and Featured,linkedin banner ideas for founders,linkedin,,,,
+G12,1,B,guide,/guides/social-media-design-packages/,Social media design packages: what's included and what they cost,social media design packages,social media,,,,

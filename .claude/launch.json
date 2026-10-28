@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "portfolio-site",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "01-portfolio/site", "run", "dev", "--", "-p", "3000"],
+      "port": 3000
+    }
+  ]
+}

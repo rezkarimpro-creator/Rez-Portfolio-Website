@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio Inspiration Board</title>
+<meta name="description" content="31 portfolio designs from Framer, Webflow and Awwwards, picked for Rez's portfolio website. Pick 2 to 4 to adapt.">
+<style>
+  :root {
+    --bg: #f5f4f0;
+    --surface: #ffffff;
+    --text: #151515;
+    --muted: #686868;
+    --line: #e2e0d9;
+    --chip: #ebe9e3;
+    --accent: #2445ff;
+    --accent-ink: #ffffff;
+    --star: #a86f00;
+    --star-bg: #fff3d6;
+    --picked: #0e8f52;
+    --bar: rgba(245, 244, 240, 0.86);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0e0e10;
+      --surface: #17171a;
+      --text: #f1f1f1;
+      --muted: #a3a3a8;
+      --line: #2a2a2f;
+      --chip: #212125;
+      --accent: #8aa0ff;
+      --accent-ink: #0b0b0d;
+      --star: #f3c55a;
+      --star-bg: #3a2f12;
+      --picked: #43d18a;
+      --bar: rgba(14, 14, 16, 0.86);
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0e0e10;
+    --surface: #17171a;
+    --text: #f1f1f1;
+    --muted: #a3a3a8;
+    --line: #2a2a2f;
+    --chip: #212125;
+    --accent: #8aa0ff;
+    --accent-ink: #0b0b0d;
+    --star: #f3c55a;
+    --star-bg: #3a2f12;
+    --picked: #43d18a;
+    --bar: rgba(14, 14, 16, 0.86);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
+  }
+
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 15px/1.5 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 0 16px; }
+  @media (min-width: 720px) { .wrap { padding: 0 32px; } }
+
+  header.top { padding: 40px 0 8px; }
+  .eyebrow { font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; }
+  h1 { font-size: clamp(30px, 5vw, 52px); line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 16px; font-weight: 700; }
+  .lead { max-width: 760px; color: var(--muted); font-size: 16px; margin: 0 0 20px; }
+  .steps { display: grid; gap: 10px; grid-template-columns: 1fr; margin: 0 0 24px; padding: 0; list-style: none; max-width: 980px; }
+  @media (min-width: 720px) { .steps { grid-template-columns: repeat(3, 1fr); } }
+  .steps li { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; font-size: 14px; }
+  .steps b { display: block; font-size: 13px; color: var(--muted); font-weight: 600; margin-bottom: 2px; }
+
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; padding: 8px 0 24px; }
+  .chip {
+    appearance: none; border: 1px solid var(--line); background: var(--chip); color: var(--text);
+    border-radius: 999px; padding: 7px 14px; font: inherit; font-size: 14px; cursor: pointer;
+  }
+  .chip[aria-pressed="true"] { background: var(--text); color: var(--bg); border-color: var(--text); }
+  .chip:focus-visible, .btn:focus-visible, .pick:focus-visible, .lnk:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  section.group { margin: 0 0 40px; }
+  .group-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 20px; margin-bottom: 16px; }
+  .group-head h2 { margin: 0; font-size: 22px; letter-spacing: -0.01em; }
+  .group-head p { margin: 0; color: var(--muted); font-size: 14px; }
+
+  .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 290px), 1fr)); }
+  .card {
+    position: relative; display: flex; flex-direction: column;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+    box-shadow: var(--shadow); transition: border-color .2s ease, box-shadow .2s ease;
+  }
+  .card.is-picked { border-color: var(--picked); box-shadow: 0 0 0 2px var(--picked), var(--shadow); }
+  .thumb { position: relative; display: block; aspect-ratio: 16 / 10; background: var(--chip); overflow: hidden; }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+  .thumb:hover img { transform: scale(1.03); }
+  .thumb.noimg::after { content: attr(data-name); position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); font-weight: 600; }
+  .num {
+    position: absolute; left: 10px; top: 10px; min-width: 30px; height: 30px; padding: 0 8px;
+    display: grid; place-items: center; border-radius: 999px; background: rgba(0,0,0,.78); color: #fff;
+    font-weight: 700; font-size: 14px;
+  }
+  .star { position: absolute; right: 10px; top: 10px; border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 700; background: var(--star-bg); color: var(--star); }
+  .body { display: flex; flex-direction: column; gap: 8px; padding: 14px 16px 16px; flex: 1; }
+  .title { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+  .title h3 { margin: 0; font-size: 17px; letter-spacing: -0.01em; }
+  .meta { color: var(--muted); font-size: 13px; white-space: nowrap; }
+  .what { margin: 0; font-size: 14px; }
+  .borrow { margin: 0; font-size: 14px; color: var(--muted); }
+  .borrow b { color: var(--text); font-weight: 600; }
+  .actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: auto; padding-top: 6px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px; text-decoration: none;
+    background: var(--accent); color: var(--accent-ink); border-radius: 9px; padding: 8px 12px; font-size: 14px; font-weight: 600;
+  }
+  .lnk { font-size: 13px; color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+  .pick {
+    margin-left: auto; appearance: none; cursor: pointer; font: inherit; font-size: 14px; font-weight: 600;
+    border: 1px solid var(--line); background: var(--chip); color: var(--text); border-radius: 9px; padding: 8px 12px;
+  }
+  .pick[aria-pressed="true"] { background: var(--picked); border-color: var(--picked); color: #fff; }
+
+  .places { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
+  .place { display: block; text-decoration: none; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+  .place b { display: block; margin-bottom: 4px; }
+  .place span { color: var(--muted); font-size: 14px; }
+
+  .bar {
+    position: sticky; bottom: 0; z-index: 5; margin-top: 24px;
+    background: var(--bar); backdrop-filter: saturate(140%) blur(10px); -webkit-backdrop-filter: saturate(140%) blur(10px);
+    border-top: 1px solid var(--line);
+  }
+  .bar .wrap { display: flex; align-items: center; gap: 10px; padding-top: 12px; padding-bottom: 12px; flex-wrap: wrap; }
+  .bar .summary { font-weight: 600; flex: 1 1 200px; min-width: 0; }
+  .bar button { appearance: none; cursor: pointer; font: inherit; font-size: 14px; font-weight: 600; border-radius: 9px; padding: 9px 14px; border: 1px solid var(--line); }
+  .bar .copy { background: var(--text); color: var(--bg); border-color: var(--text); }
+  .bar .copy:disabled { opacity: .4; cursor: default; }
+  .bar .clear { background: transparent; color: var(--text); }
+  footer { color: var(--muted); font-size: 13px; padding: 8px 0 32px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .thumb img, .card { transition: none; }
+    .thumb:hover img { transform: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <p class="eyebrow">Rez portfolio website · Phase 0 · 18 Oct 2026</p>
+    <h1>Pick the designs to adapt</h1>
+    <p class="lead">31 designs from Framer, Webflow and Awwwards, screened for your mix of pitch decks, brand identity and product design. Cards marked Shortlist are my picks for your goals. We borrow patterns from these, never copy a site 1:1.</p>
+    <ol class="steps">
+      <li><b>1. Open the live sites</b>Motion and hover effects only show on the real site, not in the thumbnail.</li>
+      <li><b>2. Pick 2 to 4</b>Mix is fine. One for layout, one for the work list, one for motion.</li>
+      <li><b>3. Copy picks</b>Paste them to Claude with a word on what you like in each.</li>
+    </ol>
+  </header>
+
+  <nav class="filters" aria-label="Filter designs">
+    <button class="chip" data-filter="all" aria-pressed="true">All 31</button>
+    <button class="chip" data-filter="star" aria-pressed="false">★ Shortlist 7</button>
+    <button class="chip" data-filter="framer" aria-pressed="false">Framer 12</button>
+    <button class="chip" data-filter="webflow" aria-pressed="false">Webflow 6</button>
+    <button class="chip" data-filter="awwwards" aria-pressed="false">Awwwards 13</button>
+  </nav>
+
+  <section class="group" data-group="framer">
+    <div class="group-head">
+      <h2>Framer Marketplace templates</h2>
+      <p>Trending portfolio and designer templates. Live site opens the template's own preview.</p>
+    </div>
+    <div class="grid">
+
+      <article class="card" data-n="1" data-src="framer" data-star data-name="Velia">
+        <a class="thumb" href="https://velia-portfolio.framer.website/" target="_blank" rel="noopener" data-name="Velia"><img src="https://y4pdgnepgswqffpt.public.blob.vercel-storage.com/media/16d21852-c42a-46a9-9795-1c1c3809753e/01a0f202-d8f6-7427-b007-a1cd928538cb.jpg" alt="Velia template preview" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="num">1</span><span class="star">★ Shortlist</span></a>
+        <div class="body">
+          <div class="title"><h3>Velia</h3><span class="meta">Free</span></div>
+          <p class="what">Light and calm. One big positioning line, then proof numbers like years and projects, then the work.</p>
+          <p class="borrow"><b>Borrow</b> A hero that tells a recruiter or client who you are in one line, backed by numbers.</p>
+          <div class="actions"><a class="btn" href="https://velia-portfolio.framer.website/" target="_blank" rel="noopener">Live site ↗</a><a class="lnk" href="https://www.framer.com/marketplace/templates/velia/" target="_blank" rel="noopener">Template page</a><button class="pick" aria-pressed="false">Pick</button></div>
+        </div>
+      </article>
+
+      <article class="card" data-n="2" data-src="framer" data-name="Paul Michel">
+        <a class="thumb" href="https://paul-michel.framer.website/" target="_blank" rel="noopener" data-name="Paul Michel"><img src="https://image.mux.com/02EEJefNgbrDOgCbV22rV5DZM1kyUc2OXmjiFz02yr9xQ/thumbnail.webp" alt="Paul Michel template preview" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="num">2</span></a>
+        <div class="body">
+          <div class="title"><h3>Paul Michel</h3><span class="meta">Free</span></div>
+          <p class="what">Editorial. A huge "Selected Work" title over large project cards.</p>
+          <p class="borrow"><b>Borrow</b> Type scale and big, confident project cards on the home page.</p>
+          <div class="actions"><a class="btn" href="https://paul-michel.framer.website/" target="_blank" rel="noopener">Live site ↗</a><a class="lnk" href="https://www.framer.com/marketplace/templates/paul-michel/" target="_blank" rel="noopener">Template page</a><button class="pick" aria-pressed="false">Pick</button></div>
+        </div>
+      </article>
+
+      <article class="card" data-n="3" data-src="framer" data-star data-name="Mondragon 4">
+        <a class="thumb" href="https://mondragon4.framer.website/" target="_blank" rel="noopener" data-name="Mondragon 4"><img src="https://y4pdgnepgswqffpt.public.blob.vercel-storage.com/media/6f1fa339-e254-4bb5-a7b0-7ca6bdd8815f/01a047d4-371b-742d-917b-05de9c32a963.jpg" alt="Mondragon 4 template preview" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="num">3</span><span class="star">★ Shortlist</span></a>
+        <div class="body">
+          <div class="title"><h3>Mondragon 4</h3><span class="meta">Free</span></div>
+          <p class="what">Multi discipline portfolio. Work tagged by discipline, product design, branding and web.</p>
+          <p class="borrow"><b>Borrow</b> Lane filters, so decks, brand and product work live in one site.</p>
+          <div class="actions"><a class="btn" href="https://mondragon4.framer.website/" target="_blank" rel="noopener">Live site ↗</a><a class="lnk" href="https://www.framer.com/marketplace/templates/mondragon-4/" target="_blank" rel="noopener">Template page</a><button class="pick" aria-pressed="false">Pick</button></div>
+        </div>
+      </article>
+
+      <article class="card" data-n="4" data-src="framer" data-name="Owen Studio">
+        <a class="thumb" href="https://owen.framer.media/" target="_blank" rel="noopener" data-name="Owen Studio"><img src="https://y4pdgnepgswqffpt.public.blob.vercel-storage.com/media/771c68e5-95fd-4ffd-9875-dc3422984931/01a00f53-61f0-719a-a029-f477d41bdab5.png" alt="Owen Studio template preview" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="num">4</span></a>
+        <div class="body">
+          <div class="title"><h3>Owen Studio</h3><span class="meta">Free</span></div>
+          <p class="what">Editorial grid with packaging and brand photography.</p>
+          <p class="borrow"><b>Borrow</b> Layouts for brand and packaging work like ALPHA, YumYum and Yerbae.</p>
+          <div class="actions"><a class="btn" href="https://owen.framer.media/" target="_blank" rel="noopener">Live site ↗</a><a class="lnk" href="https://www.framer.com/marketplace/templates/owen-studio/" target="_blank" rel="noopener">Template page</a><button class="pick" aria-pressed="false">Pick</button></div>
+        </div>
+      </article>
+
+      <article class="card" data-n="5" data-src="framer" data-name="Tabfolio Pro">
+        <a class="thumb" href="https://tabfoliopro.framer.ai/" target="_blank" rel="noopener" data-name="Tabfolio Pro"><img src="https://y4pdgnepgswqffpt.public.blob.vercel-storage.com/media/aca61592-4be2-4a8e-a3bd-86322033d2e1/01a02d51-b9c2-75ff-803e-cd5a4e07538d.png" alt="Tabfolio Pro template preview" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="num">5</span></a>
+        <div class="body">
+          <div class="title"><h3>Tabfolio Pro</h3><span class="meta">$69</span></div>
+          <p class="what">Made for UX and product designers. App and dashboard shots on soft gradients.</p>
+          <p class="borrow"><b>Borrow</b> Product case study cards for your app and SaaS work.</p>
+          <div class="actions"><a class="btn" href="https://tabfoliopro.framer.ai/" target="_blank" rel="noopener">Live site ↗</a><a class="lnk" href="https://www.framer.com/marketplace/templates/tabfolio-pro/" target="_blank" rel="noopener">Template page</a><button class="pick" aria-pressed="false">Pick</button></div>
+        </div>
+      </article>
+
+      <article class="card" data-n="6" data-src="framer" data-name="Jonas">
+        <a class="thumb" href="https://jonas-template.framer.website/" target="_blank" rel="noopener" data-name="Jonas"><img src="https://y4pdgnepgswqffpt.public.blob.vercel-storage.com/templates/46440/jonas-eqj5tFnycEX2jxwVnh5ttabEM0So59" alt="Jonas template preview" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="num">6</span></a>
+        <div class="body">
+          <div class="title"><h3>Jonas</h3><span class="meta">$149</span></div>
+          <p class="what">A calm one page site for a senior product designer.</p>
+          <p class="borrow"><b>Borrow</b> A short, confident intro and a clean flow from work to contact.</p>
+          <div class="actions"><a class="btn" href="https://jonas-template.framer.website/" target="_blank" rel="noopener">Live site ↗</a><a class="lnk" href="https://www.framer.com/marketplace/templates/jonas/" target="_blank" rel="noopener">Template page</a><button class="pick" aria-pressed="false">Pick</button></div>
+        </div>
+      </article>
+
+      <article class="card" data-n="7" data-src="framer" data-name="Verris">
+        <a class="thumb" href="https://verris.framer.website/" target="_blank" rel="noopener" data-name="Verris"><img src="https://y4pdgnepgswqffpt.public.blob.vercel-storage.com/templates/54836/verris-kAmfWOJr62sRyoTISqXZN5YNUKh6YB" alt="Verris template preview" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="num">7</span></a>
+        <div class="body">
+          <div class="title"><h3>Verris</h3><span class="meta">$49</span></div>
+          <p class="what">Minimal. The name runs huge across the hero, with large imagery below.</p>
+          <p class="borrow"><b>Borrow</b> A bold name hero for your personal brand.</p>
+          <div class="actions"><a class="btn" href="https://verris.framer.website/" target="_blank" rel="noopener">Live site ↗</a><a class="lnk" href="https://www.framer.com/marketplace/templates/verris/" target="_blank" rel="noopener">Template page</a><button class="pick" aria-pressed="false">Pick</button></div>
+        </div>
+      </article>
+
+      <article class="card" data-n="8" data-src="framer" data-name="TITARVL">
+        <a class="thumb" href="https://titarvl.framer.website/" target="_blank" rel="noopener" data-name="TITARVL"><img src="https://image.mux.com/PJQWoa02smzWDk1PZcasHzu9Wur01ElkHjPRRrOcUQdK8/thumbnail.webp" alt="TITARVL template preview" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="num">8</span></a>
+        <div class="body">
+          <div class="title"><h3>TITARVL</h3><span class="meta">$49</span></div>
+          <p class="what">Projects arranged in a 3D ring right in the hero.</p>
+          <p class="borrow"><b>Borrow</b> One interactive wow moment, desktop only.</p>
+          <div class="actions"><a class="btn" href="https://titarvl.framer.website/" target="_blank" rel="noopener">Live site ↗</a><a class="lnk" href="https://www.framer.com/marketplace/templates/titarvl/" target="_blank" rel="noopener">Template page</a><button class="pick" aria-pressed="false">Pick</button></div>
+        </div>
+      </article>
+
+      <article class="card" data-n="9" data-src="framer" data-name="Dashfolio Neo">
+        <a class="thumb" href="https://dashfolio-neo.framer.website/" target="_blank" rel="noopener" data-name="Dashfolio Neo"><img src="https://y4pdgnepgswqffpt.public.blob.vercel-storage.com/templates/45354/dashfolio-neo-QG8mOUjkaLmTr0qeOB8xLt0ktGTlqX" alt="Dashfolio Neo template preview" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="num">9</span></a>
+        <div class="body">
+          <div class="title"><h3>Dashfolio Neo</h3><span class="meta">$49</span></div>
+          <p class="what">Looks like a SaaS dashboard, with a sidebar menu.</p>
+          <p class="borrow"><b>Borrow</b> An app like feel that signals product design skill.</p>
+          <div class="actions"><a class="btn" href="https://dashfolio-neo.framer.website/" target="_blank" rel="noopener">Live site ↗</a><a class="lnk" href="https://www.framer.com/marketplace/templates/dashfolio-neo/" target="_blank" rel="noopener">Template page</a><button class="pick" aria-pressed="false">Pick</button></div>
+        </div>
+      </article>
+
+      <article class="card" data-n="10" data-src="framer" data-name="PortfolioNine">
+        <a class="thumb" href="https://portfolioone.framer.ai/" target="_blank" rel="noopener" data-name="PortfolioNine"><img src="https://y4pdgnepgswqffpt.public.blob.vercel-storage.com/media/c59fb4d9-a2f2-476e-9c4f-772cc116a235/01a0b842-cbc5-71b9-bc2c-ec7cfc3eabe8.png" alt="PortfolioNine template preview" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="num">10</span></a>
+        <div class="body">
+          <div class="title"><h3>PortfolioNine</h3><span class="meta">Free</span></div>
+          <p class="what">"Brand and Product Designer". Dark red, with a large portrait.</p>
+          <p class="borrow"><b>Borrow</b> A photo led hero, if you want your face up front.</p>
+          <div class="actions"><a class="btn" href="https://portfolioone.framer.ai/" target="_blank" rel="noopener">Live site ↗</a><a class="lnk" href="https://www.framer.com/marketplace/templates/portfolionine/" target="_blank" rel="noopener">Template page</a><button class="pick" aria-pressed="false">Pick</button></div>
+        </div>
+      </article>
+
+      <article class="card" data-n="11" data-src="framer" data-name="Athos">
+        <a class="thumb" href="https://athos.framer.website/" target="_blank" rel="noopener" data-name="Athos"><img src="https://y4pdgnepgswqffpt.public.blob.vercel-storage.com/templates/46058/athos-L5UtisQy66UcWsrjKBWEiXZ08VGodj" alt="Athos template preview" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="num">11</span></a>
+        <div class="body">
+          <div class="title"><h3>Athos</h3><span class="meta">Free</span></div>
+          <p class="what">"Your Design Partner". Services first, tool logos, soft cards.</p>
+          <p class="borrow"><b>Borrow</b> Freelance framing. What I do, how I work, book a call.</p>
+          <div class="actions"><a class="btn" href="https://athos.framer.website/" target="_blank" rel="noopener">Live site ↗</a><a class="lnk" href="https://www.framer.com/marketplace/templates/athos/" target="_blank" rel="noopener">Template page</a><button class="pick" aria-pressed="false">Pick</button></div>
+        </div>
+      </article>
+
+      <article class="card" data-n="12" data-src="framer" data-name="Leporello">
+        <a class="thumb" href="https://leporello.framer.website/" target="_blank" rel="noopener" data-name="Leporello"><img src="https://y4pdgnepgswqffpt.public.blob.vercel-storage.com/media/ddfc1a1a-4673-488f-bf8a-1fc172af85a7/01a13517-2d37-757f-a95d-188bd885368a.jpg" alt="Leporello template preview" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="num">12</span></a>
+        <div class="body">
+          <div class="title"><h3>Leporello</h3><span class="meta">$39</span></div>
+          <p class="what">UI designer portfolio. App screens shown on folded panels.</p>
+          <p class="borrow"><b>Borrow</b> Showing many UI screens without one long image.</p>
+          <div class="actions"><a class="btn" href="https://leporello.framer.website/" target="_blank" rel="noopener">Live site ↗</a><a class="lnk" href="https://www.framer.com/marketplace/templates/leporello/" target="_blank" rel="noopener">Template page</a><button class="pick" aria-pressed="false">Pick</button></div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="group" data-group="webflow">
+    <div class="group-head">
+      <h2>Webflow Marketplace templates</h2>
+      <p>Most popular design portfolio templates. Open on Webflow, then press Preview there.</p>
+    </div>
+    <div class="grid">
+
+      <article class="card" data-n="13" data-src="webflow" data-name="Ethan.D">
+        <a class="thumb" href="https://webflow.com/templates/html/ethand-website-template" target="_blank" rel="noopener" data-name="Ethan.D"><img src="https://cdn.prod.website-files.com/5e593fb060cf877cf875dd1f/6958a903d949f6dc6b2b02d7_4a779e8f-3cfa-4e90-a662-c545c7a4b3c3.webp" alt="Ethan.D template preview" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="num">13</span></a>
+        <div class="body">
+          <div class="title"><h3>Ethan.D</h3><span class="meta">$79</span></div>
+          <p class="what">Friendly personal site. "Hello, I'm Ethan", a portrait, then selected work.</p>
+          <p class="borrow"><b>Borrow</b> A warm intro with the work right under it.</p>
+          <div class="actions"><a class="btn" href="https://webflow.com/templates/html/ethand-website-template" target="_blank" rel="noopener">Open on Webflow ↗</a><button class="pick" aria-pressed="false">Pick</button></div>
+        </div>
+      </article>
+
+      <article class="card" data-n="14" data-src="webflow" data-name="Max Pratt">
+        <a class="thumb" href="https://webflow.com/templates/html/max-pratt-portfolio-website-template" target="_blank" rel="noopener" data-name="Max Pratt"><img src="https://cdn.prod.website-files.com/5e593fb060cf877cf875dd1f/6788720d5df5577838298b73_6446bcebc3b8f56ad5bb9a19_thumbnail-20(16).webp" alt="Max Pratt template preview" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="num">14</span></a>
+        <div class="body">
+          <div class="title"><h3>Max Pratt</h3><span class="meta">$49</span></div>
+          <p class="what">Minimal personal portfolio for a digital designer and art director.</p>
+          <p class="borrow"><b>Borrow</b> A quiet layout that lets the work speak.</p>
+          <div class="actions"><a class="btn" href="https://webflow.com/templates/html/max-pratt-portfolio-website-template" target="_blank" rel="noopener">Open on Webflow ↗</a><button class="pick" aria-pressed="false">Pick</button></div>
+        </div>
+      </article>
+
+      <article class="card" data-n="15" data-src="webflow" data-name="Max Bennet">
+        <a class="thumb" href="https://maxx-template.webflow.io/" target="_blank" rel="noopener" data-name="Max Bennet"><img src="https://cdn.prod.website-files.com/5e593fb060cf877cf875dd1f/697568b4144971a995247ab5_dc0bb105-59e3-4db7-936d-e32043b0dd39.webp" alt="Max Bennet template preview" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="num">15</span></a>
+        <div class="body">
+          <div class="title"><h3>Max Bennet</h3><span class="meta">$59</span></div>
+          <p class="what">Bold red condensed name over an editorial photo grid.</p>
+          <p class="borrow"><b>Borrow</b> A strong typographic brand.</p>
+          <div class="actions"><a class="btn" href="https://maxx-template.webflow.io/" target="_blank" rel="noopener">Live site ↗</a><a class="lnk" href="https://webflow.com/templates/html/max-bennet-website-template" target="_blank" rel="noopener">Template page</a><button class="pick" aria-pressed="false">Pick</button></div>
+        </div>
+      </article>
+
+      <article class="card" data-n="16" data-src="webflow" data-name="Studio Verno">
+        <a class="thumb" href="https://webflow.com/templates/html/studio-verno-website-template" target="_blank" rel="noopener" data-name="Studio Verno"><img src="https://cdn.prod.website-files.com/5e593fb060cf877cf875dd1f/68d2f64c2db5549db56b29b5_2a487f07-829f-4990-ad65-c47280fe2427.webp" alt="Studio Verno template preview" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="num">16</span></a>
+        <div class="body">
+          <div class="title"><h3>Studio Verno</h3><span class="meta">$79</span></div>
+          <p class="what">Editorial brand and web studio. Muted palette, elegant type.</p>
+          <p class="borrow"><b>Borrow</b> A premium feel for brand identity clients.</p>
+          <div class="actions"><a class="btn" href="https://webflow.com/templates/html/studio-verno-website-template" target="_blank" rel="noopener">Open on Webflow ↗</a><button class="pick" aria-pressed="false">Pick</button></div>
+        </div>
+      </article>
+
+      <article class="card" data-n="17" data-src="webflow" data-name="Alture">
+        <a class="thumb" href="https://webflow.com/templates/html/alture-website-template" target="_blank" rel="noopener" data-name="Alture"><img src="https://cdn.prod.website-files.com/5e593fb060cf877cf875dd1f/687de47a91471b55a86fd13b_96c218a9-8c65-49f2-953a-abd65a4d7811.webp" alt="Alture template preview" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="num">17</span></a>
+        <div class="body">
+          <div class="title"><h3>Alture</h3><span class="meta">$129</span></div>
+          <p class="what">Polished studio site. Gradient hero, client logo row, services.</p>
+          <p class="borrow"><b>Borrow</b> Services and trust sections for client work.</p>
+          <div class="actions"><a class="btn" href="https://webflow.com/templates/html/alture-website-template" target="_blank" rel="noopener">Open on Webflow ↗</a><button class="pick" aria-pressed="false">Pick</button></div>
+        </div>
+      </article>
+
+      <article class="card" data-n="18" data-src="webflow" data-name="Williamss">
+        <a class="thumb" href="https://webflow.com/templates/html/williamss-website-template" target="_blank" rel="noopener" data-name="Williamss"><img src="https://cdn.prod.website-files.com/5e593fb060cf877cf875dd1f/6935245e44b883189cc79d77_3f6ac2f2-6cef-4258-ad4b-a3a2b2863f18.webp" alt="Williamss template preview" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="num">18</span></a>
+        <div class="body">
+          <div class="title"><h3>Williamss</h3><span class="meta">$59</span></div>
+          <p class="what">"I'm Williams, Digital Designer". Bold photo, then featured projects.</p>
+          <p class="borrow"><b>Borrow</b> A personal intro with a clear one line promise.</p>
+          <div class="actions"><a class="btn" href="https://webflow.com/templates/html/williamss-website-template" target="_blank" rel="noopener">Open on Webflow ↗</a><button class="pick" aria-pressed="false">Pick</button></div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="group" data-group="awwwards">
+    <div class="group-head">
+      <h2>Awwwards winners</h2>
+      <p>Real portfolios that won Site of the Day. Six won in the last month.</p>
+    </div>
+    <div class="grid">
+
+      <article class="card" data-n="19" data-src="awwwards" data-star data-name="Olha Lazarieva">
+        <a class="thumb" href="https://www.olhalazarieva.com/" target="_blank" rel="noopener" data-name="Olha Lazarieva"><img src="https://assets.awwwards.com/awards/media/cache/thumb_440_330/submissions/2025/08/68af13d98621f852628699.jpg" alt="Olha Lazarieva portfolio" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="num">19</span><span class="star">★ Shortlist</span></a>
+        <div class="body">
+          <div class="title"><h3>Olha Lazarieva</h3><span class="meta">SOTD 2 Oct 2025</span></div>
+          <p class="what">Creative designer. Huge type and a portrait. Art direction, web and UI UX, open for collaboration.</p>
+          <p class="borrow"><b>Borrow</b> Closest match to your mix. Bold, personal and clear.</p>
+          <div class="actions"><a class="btn" href="https://www.olhalazarieva.com/" target="_blank" rel="noopener">Live site ↗</a><a class="lnk" href="https://www.awwwards.com/sites/olha-lazarieva" target="_blank" rel="noopener">Awwwards page</a><button class="pick" aria-pressed="false">Pick</button></div>
+        </div>
+      </article>
+
+      <article class="card" data-n="20" data-src="awwwards" data-name="Artiom Yakushev">
+        <a class="thumb" href="https://www.art-yakushev.com/" target="_blank" rel="noopener" data-name="Artiom Yakushev"><img src="https://assets.awwwards.com/awards/media/cache/thumb_440_330/submissions/2025/11/6925677e253e9025359880.png" alt="Artiom Yakushev portfolio" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="num">20</span></a>
+        <div class="body">
+          <div class="title"><h3>Artiom Yakushev</h3><span class="meta">SOTD 27 Dec 2025</span></div>
+          <p class="what">"A creative partner for companies and brands". Rich color and smooth page transitions.</p>
+          <p class="borrow"><b>Borrow</b> Client facing positioning and transitions.</p>
+          <div class="actions"><a class="btn" href="https://www.art-yakushev.com/" target="_blank" rel="noopener">Live site ↗</a><a class="lnk" href="https://www.awwwards.com/sites/artiom-yakushev" target="_blank" rel="noopener">Awwwards page</a><button class="pick" aria-pressed="false">Pick</button></div>
+        </div>
+      </article>
+
+      <article class="card" data-n="21" data-src="awwwards" data-name="Huy Phan">
+        <a class="thumb" href="https://huyml.co/" target="_blank" rel="noopener" data-name="Huy Phan"><img src="https://assets.awwwards.com/awards/media/cache/thumb_440_330/submissions/2026/08/6a8c16494e7ac039645572.jpg" alt="Huy Phan portfolio" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="num">21</span></a>
+        <div class="body">
+          <div class="title"><h3>Huy Phan Vol.2</h3><span class="meta">SOTD 14 Oct 2026</span></div>
+          <p class="what">Illustrated self portrait and clear copy. Works with agencies, studios and startups.</p>
+          <p class="borrow"><b>Borrow</b> Personality that stays clear. Good for agency and white label work.</p>
+          <div class="actions"><a class="btn" href="https://huyml.co/" target="_blank" rel="noopener">Live site ↗</a><a class="lnk" href="https://www.awwwards.com/sites/huy-phan-vol-2" target="_blank" rel="noopener">Awwwards page</a><button class="pick" aria-pressed="false">Pick</button></div>
+        </div>
+      </article>
+
+      <article class="card" data-n="22" data-src="awwwards" data-star data-name="Gil Huybrecht">
+        <a class="thumb" href="https://gilhuybrecht.com/" target="_blank" rel="noopener" data-name="Gil Huybrecht"><img src="https://assets.awwwards.com/awards/media/cache/thumb_440_330/submissions/2026/08/6a70adc581af4163073705.jpg" alt="Gil Huybrecht portfolio" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="num">22</span><span class="star">★ Shortlist</span></a>
+        <div class="body">
+          <div class="title"><h3>Gil Huybrecht</h3><span class="meta">SOTD 21 Sep 2026</span></div>
+          <p class="what">Dense project index, an "available from" date and a recognition list.</p>
+          <p class="borrow"><b>Borrow</b> A work index recruiters can scan in seconds.</p>
+          <div class="actions"><a class="btn" href="https://gilhuybrecht.com/" target="_blank" rel="noopener">Live site ↗</a><a class="lnk" href="https://www.awwwards.com/sites/gil-huybrecht" target="_blank" rel="noopener">Awwwards page</a><button class="pick" aria-pressed="false">Pick</button></div>
+        </div>
+      </article>
+
+      <article class="card" data-n="23" data-src="awwwards" data-star data-name="Grégory Lallé">
+        <a class="thumb" href="https://gregorylalle.com" target="_blank" rel="noopener" data-name="Grégory Lallé"><img src="https://assets.awwwards.com/awards/media/cache/thumb_440_330/submissions/2024/10/670106e1d1012259838679.png" alt="Grégory Lallé portfolio" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="num">23</span><span class="star">★ Shortlist</span></a>
+        <div class="body">
+          <div class="title"><h3>Grégory Lallé</h3><span class="meta">SOTD 30 Oct 2024</span></div>
+          <p class="what">Minimal works index with image thumbnails and smooth page transitions.</p>
+          <p class="borrow"><b>Borrow</b> Elegant motion that never slows anyone down.</p>
+          <div class="actions"><a class="btn" href="https://gregorylalle.com" target="_blank" rel="noopener">Live site ↗</a><a class="lnk" href="https://www.awwwards.com/sites/gregory-lalle-24" target="_blank" rel="noopener">Awwwards page</a><button class="pick" aria-pressed="false">Pick</button></div>
+        </div>
+      </article>
+
+      <article class="card" data-n="24" data-src="awwwards" data-name="Elliott Mangham">
+        <a class="thumb" href="https://elliott.mangham.dev" target="_blank" rel="noopener" data-name="Elliott Mangham"><img src="https://assets.awwwards.com/awards/media/cache/thumb_440_330/submissions/2025/10/69022a5b8259f739506870.png" alt="Elliott Mangham portfolio" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="num">24</span></a>
+        <div class="body">
+          <div class="title"><h3>Elliott Mangham</h3><span class="meta">SOTD 2025</span></div>
+          <p class="what">Clean, dark single page with many small interactions.</p>
+          <p class="borrow"><b>Borrow</b> Microinteractions on buttons, links and cards.</p>
+          <div class="actions"><a class="btn" href="https://elliott.mangham.dev" target="_blank" rel="noopener">Live site ↗</a><a class="lnk" href="https://www.awwwards.com/sites/elliott-mangham" target="_blank" rel="noopener">Awwwards page</a><button class="pick" aria-pressed="false">Pick</button></div>
+        </div>
+      </article>
+
+      <article class="card" data-n="25" data-src="awwwards" data-name="Maria Vasilyeva">
+        <a class="thumb" href="https://www.mariavasilyeva.com/" target="_blank" rel="noopener" data-name="Maria Vasilyeva"><img src="https://assets.awwwards.com/awards/media/cache/thumb_440_330/submissions/2026/08/6a87093710758900048487.png" alt="Maria Vasilyeva portfolio" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="num">25</span></a>
+        <div class="body">
+          <div class="title"><h3>Maria Vasilyeva</h3><span class="meta">SOTD 9 Oct 2026</span></div>
+          <p class="what">Editorial serif. "Composing visual narratives in digital space".</p>
+          <p class="borrow"><b>Borrow</b> An elegant type pairing for a calm, premium tone.</p>
+          <div class="actions"><a class="btn" href="https://www.mariavasilyeva.com/" target="_blank" rel="noopener">Live site ↗</a><a class="lnk" href="https://www.awwwards.com/sites/maria-vasilyeva-portfolio" target="_blank" rel="noopener">Awwwards page</a><button class="pick" aria-pressed="false">Pick</button></div>
+        </div>
+      </article>
+
+      <article class="card" data-n="26" data-src="awwwards" data-name="Signal-A Studio">
+        <a class="thumb" href="https://signal-a.studio" target="_blank" rel="noopener" data-name="Signal-A Studio"><img src="https://assets.awwwards.com/awards/media/cache/thumb_440_330/submissions/2026/01/69761964571b9601514717.jpg" alt="Signal-A Studio site" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="num">26</span></a>
+        <div class="body">
+          <div class="title"><h3>Signal-A Studio</h3><span class="meta">SOTD 18 Oct 2026</span></div>
+          <p class="what">Interface and experience design studio. A big headline mixing serif and sans.</p>
+          <p class="borrow"><b>Borrow</b> How a product design studio talks about its work.</p>
+          <div class="actions"><a class="btn" href="https://signal-a.studio" target="_blank" rel="noopener">Live site ↗</a><a class="lnk" href="https://www.awwwards.com/sites/signal-a-studio" target="_blank" rel="noopener">Awwwards page</a><button class="pick" aria-pressed="false">Pick</button></div>
+        </div>
+      </article>
+
+      <article class="card" data-n="27" data-src="awwwards" data-star data-name="Nick Ho">
+        <a class="thumb" href="https://nickho-motorsports.nl/" target="_blank" rel="noopener" data-name="Nick Ho"><img src="https://assets.awwwards.com/awards/media/cache/thumb_440_330/submissions/2026/08/6a85b37721f48885790043.jpg" alt="Nick Ho portfolio" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="num">27</span><span class="star">★ Shortlist</span></a>
+        <div class="body">
+          <div class="title"><h3>Nick Ho</h3><span class="meta">SOTD 11 Oct 2026</span></div>
+          <p class="what">Designer for motorsport brands. A wall of his logos around one hero object.</p>
+          <p class="borrow"><b>Borrow</b> A logo wall that shows all your brand marks at once.</p>
+          <div class="actions"><a class="btn" href="https://nickho-motorsports.nl/" target="_blank" rel="noopener">Live site ↗</a><a class="lnk" href="https://www.awwwards.com/sites/nick-ho" target="_blank" rel="noopener">Awwwards page</a><button class="pick" aria-pressed="false">Pick</button></div>
+        </div>
+      </article>
+
+      <article class="card" data-n="28" data-src="awwwards" data-star data-name="Metalab">
+        <a class="thumb" href="https://www.metalab.com/" target="_blank" rel="noopener" data-name="Metalab"><img src="https://assets.awwwards.com/awards/media/cache/thumb_440_330/submissions/2024/03/65f2058cc115d249482054.png" alt="Metalab site" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="num">28</span><span class="star">★ Shortlist</span></a>
+        <div class="body">
+          <div class="title"><h3>Metalab</h3><span class="meta">SOTD 24 Apr 2024</span></div>
+          <p class="what">A top product design agency. Confident copy and strong product case studies.</p>
+          <p class="borrow"><b>Borrow</b> Case study structure for Delineate and your app work.</p>
+          <div class="actions"><a class="btn" href="https://www.metalab.com/" target="_blank" rel="noopener">Live site ↗</a><a class="lnk" href="https://www.awwwards.com/sites/metalab" target="_blank" rel="noopener">Awwwards page</a><button class="pick" aria-pressed="false">Pick</button></div>
+        </div>
+      </article>
+
+      <article class="card" data-n="29" data-src="awwwards" data-name="RossMason">
+        <a class="thumb" href="https://iamrossmason.com/" target="_blank" rel="noopener" data-name="RossMason"><img src="https://assets.awwwards.com/awards/media/cache/thumb_440_330/submissions/2024/02/65c4f9a6c7cba605264407.jpg" alt="RossMason portfolio" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="num">29</span></a>
+        <div class="body">
+          <div class="title"><h3>RossMason</h3><span class="meta">SOTD 27 Feb 2024</span></div>
+          <p class="what">Art director. A row of projects and playful mixed type.</p>
+          <p class="borrow"><b>Borrow</b> Personality in type without losing the grid.</p>
+          <div class="actions"><a class="btn" href="https://iamrossmason.com/" target="_blank" rel="noopener">Live site ↗</a><a class="lnk" href="https://www.awwwards.com/sites/rossmason-r" target="_blank" rel="noopener">Awwwards page</a><button class="pick" aria-pressed="false">Pick</button></div>
+        </div>
+      </article>
+
+      <article class="card" data-n="30" data-src="awwwards" data-name="Jesper Landberg">
+        <a class="thumb" href="http://jesperlandberg.com" target="_blank" rel="noopener" data-name="Jesper Landberg"><img src="https://assets.awwwards.com/awards/media/cache/thumb_440_330/submissions/2026/08/6a7c61dac1259299462758.jpg" alt="Jesper Landberg portfolio" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="num">30</span></a>
+        <div class="body">
+          <div class="title"><h3>Jesper Landberg</h3><span class="meta">SOTD 29 Sep 2026</span></div>
+          <p class="what">Projects on a curved 3D wall you scroll through.</p>
+          <p class="borrow"><b>Borrow</b> Motion reference only. An optional 3D gallery for desktop.</p>
+          <div class="actions"><a class="btn" href="http://jesperlandberg.com" target="_blank" rel="noopener">Live site ↗</a><a class="lnk" href="https://www.awwwards.com/sites/jesper-landberg-4" target="_blank" rel="noopener">Awwwards page</a><button class="pick" aria-pressed="false">Pick</button></div>
+        </div>
+      </article>
+
+      <article class="card" data-n="31" data-src="awwwards" data-name="Gianluca Gradogna">
+        <a class="thumb" href="https://gianlucagradogna.com/" target="_blank" rel="noopener" data-name="Gianluca Gradogna"><img src="https://assets.awwwards.com/awards/media/cache/thumb_440_330/submissions/2025/01/677ecaf5b3892213227330.jpg" alt="Gianluca Gradogna portfolio" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="num">31</span></a>
+        <div class="body">
+          <div class="title"><h3>Gianluca Gradogna</h3><span class="meta">SOTD 23 Jan 2025</span></div>
+          <p class="what">Dark editorial with a horizontal layout. "Crafting narrative through design".</p>
+          <p class="borrow"><b>Borrow</b> A storytelling layout for pitch deck case studies.</p>
+          <div class="actions"><a class="btn" href="https://gianlucagradogna.com/" target="_blank" rel="noopener">Live site ↗</a><a class="lnk" href="https://www.awwwards.com/sites/gianluca-gradogna-portfolio" target="_blank" rel="noopener">Awwwards page</a><button class="pick" aria-pressed="false">Pick</button></div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="group" data-group="places">
+    <div class="group-head">
+      <h2>More places to browse</h2>
+      <p>If nothing above feels right, these are the best sources.</p>
+    </div>
+    <div class="places">
+      <a class="place" href="https://www.awwwards.com/websites/winner_category_portfolio/" target="_blank" rel="noopener"><b>Awwwards Portfolio Honors ↗</b><span>Every award winning portfolio, newest first.</span></a>
+      <a class="place" href="https://www.framer.com/community/gallery/categories/portfolio/" target="_blank" rel="noopener"><b>Framer Gallery, Portfolio ↗</b><span>Real designer portfolios built in Framer.</span></a>
+      <a class="place" href="https://www.bestfolios.com/portfolios" target="_blank" rel="noopener"><b>Bestfolios ↗</b><span>Product and UX designer portfolios. Good for case study structure.</span></a>
+      <a class="place" href="https://recent.design" target="_blank" rel="noopener"><b>Recent ↗</b><span>UI and motion feed. Godly now redirects here.</span></a>
+      <a class="place" href="https://tympanus.net/codrops/" target="_blank" rel="noopener"><b>Codrops ↗</b><span>Interaction tutorials with code we can adapt.</span></a>
+    </div>
+  </section>
+
+  <footer>Thumbnails load from Framer, Webflow and Awwwards. Prices and awards as listed on 18 Oct 2026.</footer>
+</div>
+
+<div class="bar" role="region" aria-label="Your picks">
+  <div class="wrap">
+    <span class="summary" aria-live="polite">Nothing picked yet</span>
+    <button class="clear" type="button">Clear</button>
+    <button class="copy" type="button" disabled>Copy picks</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var KEY = 'rez-inspiration-picks';
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
+  var summary = document.querySelector('.bar .summary');
+  var copyBtn = document.querySelector('.bar .copy');
+  var clearBtn = document.querySelector('.bar .clear');
+  var picks = [];
+
+  try { picks = JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) { picks = []; }
+  if (!Array.isArray(picks)) picks = [];
+
+  function save() {
+    try { localStorage.setItem(KEY, JSON.stringify(picks)); } catch (e) {}
+  }
+
+  function nameOf(n) {
+    var c = document.querySelector('.card[data-n="' + n + '"]');
+    return c ? c.getAttribute('data-name') : '';
+  }
+
+  function sorted() {
+    return picks.map(Number).sort(function (a, b) { return a - b; });
+  }
+
+  function render() {
+    cards.forEach(function (c) {
+      var on = picks.indexOf(c.getAttribute('data-n')) !== -1;
+      c.classList.toggle('is-picked', on);
+      var b = c.querySelector('.pick');
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      b.textContent = on ? 'Picked ✓' : 'Pick';
+    });
+    var list = sorted();
+    summary.textContent = list.length ? 'Picked ' + list.map(function (n) { return n + ' ' + nameOf(n); }).join(', ') : 'Nothing picked yet';
+    copyBtn.disabled = !list.length;
+  }
+
+  cards.forEach(function (c) {
+    c.querySelector('.pick').addEventListener('click', function () {
+      var n = c.getAttribute('data-n');
+      var i = picks.indexOf(n);
+      if (i === -1) picks.push(n); else picks.splice(i, 1);
+      save();
+      render();
+    });
+    var img = c.querySelector('.thumb img');
+    if (img) img.addEventListener('error', function () {
+      img.remove();
+      c.querySelector('.thumb').classList.add('noimg');
+    });
+  });
+
+  clearBtn.addEventListener('click', function () { picks = []; save(); render(); });
+
+  function fallbackCopy(text) {
+    var t = document.createElement('textarea');
+    t.value = text;
+    t.setAttribute('readonly', '');
+    t.style.position = 'fixed';
+    t.style.opacity = '0';
+    document.body.appendChild(t);
+    t.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(t);
+    return ok;
+  }
+
+  copyBtn.addEventListener('click', function () {
+    var text = 'My picks: ' + sorted().map(function (n) { return n + ' ' + nameOf(n); }).join(', ');
+    function done(ok) {
+      var old = 'Copy picks';
+      copyBtn.textContent = ok ? 'Copied ✓' : 'Select and copy the line on the left';
+      setTimeout(function () { copyBtn.textContent = old; }, 1800);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(fallbackCopy(text)); });
+    } else {
+      done(fallbackCopy(text));
+    }
+  });
+
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      var f = chip.getAttribute('data-filter');
+      chips.forEach(function (x) { x.setAttribute('aria-pressed', x === chip ? 'true' : 'false'); });
+      cards.forEach(function (c) {
+        var show = f === 'all' || (f === 'star' ? c.hasAttribute('data-star') : c.getAttribute('data-src') === f);
+        c.hidden = !show;
+      });
+      document.querySelectorAll('section.group').forEach(function (s) {
+        if (s.getAttribute('data-group') === 'places') { s.hidden = f !== 'all'; return; }
+        var any = s.querySelectorAll('.card:not([hidden])').length > 0;
+        s.hidden = !any;
+      });
+    });
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
