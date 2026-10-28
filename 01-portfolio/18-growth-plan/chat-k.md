@@ -35,4 +35,4 @@ The before and after table shows the gain; nothing looks or behaves differently;
 
 ## Report
 
-(filled by chat K)
+Done, 29 Oct 2026: [reports/k.md](reports/k.md). Fonts 156 KB to 83 KB per page and Motion's features lazy through a `next.config.ts` alias (Home's first load JavaScript 260.5 KB to 232.3 KB gzip), both built, nothing looks different.

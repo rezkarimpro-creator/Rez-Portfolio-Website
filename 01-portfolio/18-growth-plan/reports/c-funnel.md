@@ -39,7 +39,7 @@ Goal: B = booked call (`cal_booked`), M = message (`form_sent`), CV = CV request
 | 6 | 14 guides | 4.6 phone screens to the button; readers who are convinced mid page find nothing | A compact call card after the "From a real project" proof (or halfway, when a guide has none) | B | Yes | Existing call card words | S |
 | 7 | 5 service pages | Prices live only on /work-with-me and service pages don't link to it | A second pill in the header, next to "See all work": "Work with me" to /work-with-me | B | Yes | Existing: "Work with me". Option: "See prices" (new) | S |
 | 8 | /work-with-me | Offers with prices but the button only after the questions | "Book free strategy call" in the header, under the lead | B | Yes | Existing | S |
-| 9 | Home | Only Book in the hero; a visitor who wants to write must find the footer | A second pill beside Book: "Send a message" to the founder form | M | Yes | Existing | S |
+| 9 | Home | Book and See all work in the hero, no way to write; a visitor who wants to write must find the footer | A second pill beside Book: "Send a message" to the founder form | M | Yes | Existing | S |
 | 10 | /about, /career | Recruiters scroll 2.8 and 3.6 phone screens to "Ask for my CV" | Put "Ask for my CV" in the header of both pages (the one lower down stays) | CV | Yes | Existing | S |
 | 11 | Site wide | No heatmaps or recordings to see where visitors stop | Microsoft Clarity behind Allow, masking on, privacy lines and CSP hosts; Rez signs up. My view: not yet. At today's traffic it shows little, and it adds a third party script while chat K fights for mobile speed. Revisit after 4 weeks of /stats | All | No (banner text changes) | Privacy lines (new) | M |
 | 12 | /contact | Form length | No change: it is already short | M | No | | |
